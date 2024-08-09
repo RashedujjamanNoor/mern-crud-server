@@ -9,7 +9,7 @@ export const create = async (req, res) => {
     }
 
     const saveData = await userData.save();
-    res.status(200).json(saveData);
+    res.status(200).json({ msg: "User created sucessfully" });
   } catch (error) {
     res.status(500).json({
       error: error,
@@ -70,7 +70,7 @@ export const updateUser = async (req, res) => {
     const updatedData = await User.findByIdAndUpdate(userId, req.body, {
       new: true,
     });
-    res.status(200).json(updatedData);
+    res.status(200).json({ msg: "User updated successfully" });
   } catch (error) {
     res.status(500).json({ error: error });
   }
